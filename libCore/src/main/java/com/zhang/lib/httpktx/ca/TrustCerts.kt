@@ -9,7 +9,7 @@ import javax.net.ssl.X509TrustManager
  *
  * @author ZhangXiaoMing 2024-10-14 11:30 周一
  */
-class TrustCerts : X509TrustManager {
+internal class TrustCerts : X509TrustManager {
 
     /**
      * Given the partial or complete certificate chain provided by the

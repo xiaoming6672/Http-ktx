@@ -13,7 +13,7 @@ import java.lang.reflect.Type
  * @author ZhangXiaoMing 2024-10-14 18:59 周一
  */
 
-class XMConverterFactory @PublishedApi internal constructor(
+internal class ConverterFactory @PublishedApi internal constructor(
     private val factory : Converter.Factory = GsonConverterFactory.create() ,
     private val analyzer : String.() -> Unit ,
 ) : Converter.Factory() {
@@ -25,7 +25,7 @@ class XMConverterFactory @PublishedApi internal constructor(
         methodAnnotations : Array<out Annotation> ,
         retrofit : Retrofit
     ) : Converter<* , RequestBody>? {
-        return super.requestBodyConverter(type , parameterAnnotations , methodAnnotations , retrofit)
+        return factory.requestBodyConverter(type , parameterAnnotations , methodAnnotations , retrofit)
     }
 
     override fun responseBodyConverter(
@@ -65,6 +65,6 @@ class XMConverterFactory @PublishedApi internal constructor(
         fun create(
             factoryAgent : Converter.Factory = GsonConverterFactory.create() ,
             analyzer : String.() -> Unit
-        ) = XMConverterFactory(factoryAgent , analyzer)
+        ) = ConverterFactory(factoryAgent , analyzer)
     }
 }

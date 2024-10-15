@@ -10,8 +10,8 @@ apply(from = rootProject.file("AliMaven.gradle.kts"))
 
 val libGroupId = "com.lib.xiaoming"
 val libArtifactId = "http-ktx"
-val libVersionCode = 1
-val libVersionName = "0.1.0"
+val libVersionCode = 2
+val libVersionName = "0.1.1"
 
 
 android {

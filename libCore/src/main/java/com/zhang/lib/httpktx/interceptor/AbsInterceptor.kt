@@ -10,7 +10,7 @@ import okhttp3.Response
  *
  * @author ZhangXiaoMing 2024-10-14 11:47 周一
  */
-internal abstract class AbsInterceptor : Interceptor {
+abstract class AbsInterceptor : Interceptor {
 
     @CallSuper
     override fun intercept(chain : Interceptor.Chain) : Response {
@@ -22,4 +22,4 @@ internal abstract class AbsInterceptor : Interceptor {
     abstract fun interceptChain(chain : Interceptor.Chain) : Response
 }
 
-internal fun Interceptor.Chain.proceed() = proceed(request())
+fun Interceptor.Chain.proceed() = proceed(request())

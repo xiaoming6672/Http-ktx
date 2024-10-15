@@ -5,7 +5,7 @@ import android.util.Log
 import com.zhang.lib.httpktx.bean.RetrofitConfig
 import com.zhang.lib.httpktx.ca.TrustCerts
 import com.zhang.lib.httpktx.ca.TrustHostnameVerifier
-import com.zhang.lib.httpktx.factory.XMConverterFactory
+import com.zhang.lib.httpktx.factory.ConverterFactory
 import com.zhang.lib.httpktx.interceptor.HeaderInterceptor
 import com.zhang.lib.httpktx.interceptor.LogInterceptor
 import com.zhang.lib.httpktx.ktx.addCallAdapterFactory
@@ -50,7 +50,7 @@ object RetrofitSdk {
 
     /** 转换器工厂类列表 */
     private val converterFactoryList by lazy {
-        mutableListOf<Converter.Factory>(XMConverterFactory { responseAnalyzer?.invoke(this) })
+        mutableListOf<Converter.Factory>(ConverterFactory { responseAnalyzer?.invoke(this) })
     }
 
     /** 适配工厂列表 */
@@ -113,7 +113,7 @@ object RetrofitSdk {
     }
 
 
-    val trustUrlList by lazy { mutableListOf<String>() }
+    internal val trustUrlList by lazy { mutableListOf<String>() }
 
     /** 添加信任域名 */
     fun addTrustUrl(vararg url : String) = apply {

@@ -12,7 +12,7 @@ import javax.net.ssl.SSLSession
  *
  * @author ZhangXiaoMing 2024-10-14 11:32 周一
  */
-class TrustHostnameVerifier : HostnameVerifier {
+internal class TrustHostnameVerifier : HostnameVerifier {
 
     /**
      * Verify that the host name is an acceptable match with
